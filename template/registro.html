@@ -56,8 +56,6 @@
         </div>
     </div>
 <body>
-    
-</style>
 </head>
 <body>
 <div class="container w-75 bg-white mt-5 rounded shadow">
@@ -68,11 +66,11 @@
                 <img src="" width="48" alt="">
             </div>
 
-            <div class="form-container">
+            <div class="form-container text-center p-3">
                 <h2 class="fw-bold text-center py-3">Registro de cuenta</h2>
 
-                <form action="#">
-                    <div class="mb-3">                
+                <form action="#" method="POST" class="form-control">
+                    <!-- <div class="mb-3">                
                         <label for="tombre" class="form-label">Nombre Completo</label>
                         <input type="text" class="form-control" name="Nombre">
                     </div>
@@ -130,7 +128,9 @@
                                 </select>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
+                    {% csrf_token %}
+                    {{form}}
 
                     <div class="mb-4 form-check">
                         <input type="checkbox" name="connected" class="form-check-input">

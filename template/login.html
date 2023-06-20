@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./elementos/">
     <link rel="stylesheet" href="productos/">
-    <link rel="stylesheet" href="{% static 'CSS/bootstrap.min.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'CSS/bootstrap.min.css' %}"> -->
     
 
     <style>
@@ -76,28 +76,26 @@
 
                 <h2 class="fw-bold text-center py-5">Bienvenido</h2>
 
-                <form action="#">
-                    <div class="mb-4">                
-                        <label for="email" class="form-label">Correo Electrónico</label>
-                        <input type="email" class="form-control" name="email">
-                    </div>
-
-                    <div class="mb-4">
-                        <label for="email" class="form-label">Contraseña</label>
-                        <input type="email" class="form-control" name="contraseña">
-                    </div>
-
-                    <div class="mb-4 form-check">
-                        <input type="checkbox" name="connected" class="form-check-input">
-                        <label for="connected" class="form-check-label">Mantenerme conectado</label>
-                    </div>
+                <form action="#" method="POST">
+                    {% csrf_token %}
+                    {{ form }}
+        
+                    <div class="bg-danger mt-1">{{ form.errors.password }}</div>
+        
+                    {% if form.non_field_errors %}
+                    <div class="form-group">
+                        <div class="bg-danger mt-1 p-2">Login incorrecto!</div>
+                    </div>  
+                    {% endif %}
+                    
+                    {{form.non_field_errors}}
 
                     <div class="d-grid">
-                        <button type="submit" class="btn btn-warning">Iniciar Sesión</button>
+                        <button type="submit" class="btn btn-warning">Registrar cuenta</button>
                     </div>
 
                     <div class="my-3">
-                        <span>¿No tienes cuenta? <a href="registro.html">Regístrate</a></span> <br>
+                        <span>¿No tienes cuenta? <a href="{% url 'registro' %}">Regístrate</a></span> <br>
                         <span><a href="recuperar contraseña.html">Recuperar Contraseña</a></span>
                     </div>
                 </form>
