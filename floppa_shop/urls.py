@@ -18,11 +18,13 @@ from django.urls import path, include
 
 # Logout y login view
 from django.contrib.auth.views import LoginView,LogoutView
+from django.views.generic import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls')),
     
-    path('logout/', LogoutView.as_view(template_name='index.html'), name='logout'),
-    path('login/', LoginView.as_view(redirect_authenticated_user=True,template_name='index.html'), name='login'),
+    path('logout/', LogoutView.as_view(template_name='logout.html'), name='logout'),
+    path('login/', LoginView.as_view(redirect_authenticated_user=True,template_name='login.html'), name='login'),
+    path('', TemplateView.as_view(template_name='index.html'), name='indexx'),
 ]

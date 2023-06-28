@@ -16,12 +16,6 @@ from .form import  *
 
 # Create your views here.
 
-def login(request):
-    
-    form = iniciarSesion
-    
-    return render(request, 'login.html', {'form':form})
-
 def home(request):
     
     return render(request, 'index.html')
