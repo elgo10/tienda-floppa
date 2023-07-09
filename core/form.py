@@ -15,11 +15,14 @@ regionChoices = (('Metropolitana', 'Metropolitana'),('Arica y parinacota', 'Aric
 
 class RegistroForm(UserCreationForm):
     
-    region = forms.CharField(max_length=200, widget=forms.Select(choices=regionChoices))
-    nivelEducacional = forms.CharField(max_length=200, widget=forms.Select(choices=edChoices))
+    region = forms.CharField(label='Region', max_length=200, widget=forms.Select(choices=regionChoices))
+    nivelEducacional = forms.CharField(label='Nivel Educacional',max_length=200, widget=forms.Select(choices=edChoices))
+    rut = forms.CharField(max_length=100, label='RUT')
+    nombre = forms.CharField(max_length=100, label='Nombre')
+    apellido = forms.CharField(max_length=100, label='Apellido')
     class Meta:
         model = User
-        fields = ['username', 'password1', 'password2', 'email', 'region', 'nivelEducacional']
+        fields = ['username', 'password1', 'password2','rut', 'nombre', 'apellido','email', 'region', 'nivelEducacional']
         
         
         widgets = {

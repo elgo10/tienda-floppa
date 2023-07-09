@@ -20,6 +20,10 @@ from django.urls import path, include
 from django.contrib.auth.views import LoginView,LogoutView
 from django.views.generic import TemplateView
 
+# Media static
+from django.conf.urls.static import static
+from django.conf import settings
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls')),
@@ -27,4 +31,4 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(template_name='logout.html'), name='logout'),
     path('login/', LoginView.as_view(redirect_authenticated_user=True,template_name='login.html'), name='login'),
     path('', TemplateView.as_view(template_name='index.html'), name='indexx'),
-]
+]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

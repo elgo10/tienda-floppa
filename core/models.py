@@ -15,3 +15,30 @@ class Cliente(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     region = models.CharField(max_length=200, choices=regionChoices)
     nivelEducacional = models.CharField(max_length=200, choices=edChoices)
+    rut = models.CharField(max_length=100, null=True)
+    nombre = models.CharField(max_length=100, null=True)
+    apellido = models.CharField(max_length=100, null=True)
+    
+    def __str__(self):    
+        return self.nombre
+    
+class Producto(models.Model):
+    
+    nombre = models.CharField(max_length=100, null=True)
+    precio = models.IntegerField()
+    descripcion = models.CharField(max_length=200, null=True)
+    marca = models.CharField(max_length=100, null=True)
+    cantidad = models.IntegerField()
+    img = models.ImageField()
+    
+    def __str__(self):
+        return self.nombre
+    
+class Carrito(models.Model):
+    
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    total = models.IntegerField(blank=True, default=0)
+    productos = models.ForeignKey(Producto, on_delete=models.CASCADE)
+    
+    def __str__(self):    
+        return f'{self.user.id} | {self.productos.nombre}'

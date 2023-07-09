@@ -8,6 +8,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./CSS/bootstrap.min.css">
     <link rel="stylesheet" href="./elementos/">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="JS/clpusdproducto.js"></script>
 </head>
 
 <body>
@@ -19,15 +21,28 @@
                   <a class="navbar-brand" href="index.html">Flopp Store</a>
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
+
                   </button>
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                       <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="Donaciones.html">Donaciones</a>
                       </li>
+                      
+                      <li class="nav-item dropdown">
+                        <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Conversion
+                        </a>
+
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item clpBtn">CLP</a></li>
+                          <li><a class="dropdown-item dolarBtn">USD</a></li>
+                        </ul>
+
                       <li class="nav-item">
                         <a class="nav-link active" href="carrito.html">Carrito</a>
                       </li>
+
                       <li class="nav-item">
                         <a class="nav-link active bg-danger" href="login.html">INGRESAR</a>
                       </li>
@@ -39,55 +54,31 @@
         </div>
     </div>
 
-    <div class="container" style="padding-top: 12px;">
-      <div class="row">
-
-        <div class="col-md-6 order-md-1">
-
-          <div id="carouselImages" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="elementos/peluchefloppa2.jpg" class="d-block w-100">
-              </div>
-              <div class="carousel-item">
-                <img src="elementos/peluchefloppa2.jpg" class="d-block w-100">
-              </div>
+    <div class="container mt-3">
+        <div class="row">
+          <h1>Carrito: 1 productos</h1>
+        </div>
+        <main class="row">
+          <div class="col-md-8 order-md-1">
+            <div class="card mt-1 border-success"></div>
+            <img class="card-img-top" src="elementos/poleronfloppa.jpg" alt="Brit care dog adult large breed salmon and potato 12kg" style="max-width: 20%;">
+            <div class="card-body">
+              <h3 class="card-title">Poleron FLoppa</h3>
+              <div class="card-title"> <label class="h5">$</label><label class="h5" id="cardPrice">20000</label></div>
+              <a href="#" class="card-link">Eliminar</a>
+    
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselImages" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselImages" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
+              
           </div>
-
-        </div>
-
-        <div class="col-md-6 order-md-2 mt-5">
-          <h2>Peluche FLoppa Grande</h2>
-          <h2>$20.000</h2>
-          <p></p>
-          <p></p>
-          <p class="lead">
-          </p>
-
-          <div class="d-grid gap-3 col-10 mt-10 mx-auto">
-            <button class="btn btn-primary" type="button"> Comprar ahora </button>
-            <button class="btn btn-danger" type="button"> Agregar al carrito </button>
-            <p></p>
+          <div class="col-md-4 order-md-2">
+            <h2>Productos totales: (1)</h2>
+            <p class="lead mt-2"> <div class="card-title"> <label class="h5">$</label><label class="h5" id="cardPrice2">20000</label></div>
+            <a href="pagar.html" class="btn btn-danger placeholder-glow">Realizar pago y envío</a>
+            <a href="index.html" class="btn btn-primary">Seguir comprando</a>
           </div>
-          <div class="row border-top" style="margin-top: 1%; margin-bottom: 1%;">
-            <h2>Descripción del producto</h2>
-            <span class="lead d-grid">peluche de 50 centrimetros mas tierno y abrazable</span>
-            <h2 style="margin-top: 40px;"><small>MARCA: Bigfloppy</small></h2>
-            <h2 style="margin-top: 4px;"><small><span style="color: rgb(255, 204, 0);">5 UNIDADES DISPONIBLES</span></small></h2>
-          </div>
-        </div>
-    </div>
-  </div>
-
-</body>
-
-</html>
+    
+    
+        </main>
+    
+    </body>
+    </html>

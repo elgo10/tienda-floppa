@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container mt-3">
+        <div class="row">
+          <h1>Carrito: {{carrito.count}} productos</h1>
+        </div>
+        <main class="row">
+          {% for p in carrito %}
+          <div class="col-md-6 order-md-1">
+            <div class="card mt-1 border-success"></div>
+            <img class="card-img-top" src="{{p.productos.img.url}}" alt="Brit care dog adult large breed salmon and potato 12kg" style="max-width: 20%;">
+            <div class="card-body">
+              <h5 class="card-title">{{p.productos.nombre}}</h5>
+              <div class="card-title"> <label class="h5">$</label><label class="h5" id="cardPrice">{{p.productos.precio}}</label></div>
+              <a href="#" class="card-link">Eliminar</a>
+            </div>
+          </div>
+          {% endfor %}
+
+          <div class="col-md-4 order-md-2">
+            <h2>Productos totales: ({{carrito.count}})</h2>
+            <p class="lead mt-2"> <div class="card-title"> <label class="h5">$</label><label class="h5" id="cardPrice2">{{total}}</label></div>
+            <a href="{% url 'pagar' %}" class="btn btn-danger placeholder-glow">Realizar pago y envío</a>
+            <a href="{% url 'home' %}" class="btn btn-primary">Seguir comprando</a>
+          </div>
+        </main>
+{% endblock %}
