@@ -10,6 +10,11 @@ from django.views.generic import CreateView, ListView
 
 from .models import *
 
+
+# Login required
+from django.contrib.auth.decorators import login_required
+
+
 # forms
 
 from .form import  *
@@ -47,13 +52,13 @@ class CreateProducto(CreateView):
     template_name = 'registrar_producto.html'
     success_url = reverse_lazy('home')
 
+@login_required(login_url='login')
 def carrito(request):
     
     user = request.user.id
     
     carrito = Carrito.objects.filter(user_id = user)
-    
-    
+
     
     total = 0
     for carritos in carrito:
