@@ -38,11 +38,11 @@
         </p>
 
         <div class="d-grid gap-3 col-10 mt-10 mx-auto">
-          <form action="" method="POST">
+          <form action="{% url 'carrito' %}" method="POST">
             {% csrf_token %}
             <button class="btn btn-danger" type="submit"> Agregar al carrito </button>
           </form>
-          <button class="btn btn-primary" type="button"> Comprar ahora </button>
+          <a class="btn btn-primary" href="{% url 'pagar' %}"> Comprar ahora </a>
           <p></p>
         </div>
         <div class="row border-top" style="margin-top: 1%; margin-bottom: 1%;">

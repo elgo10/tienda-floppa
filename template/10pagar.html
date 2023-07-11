@@ -6,99 +6,102 @@
   <div class="row border-bottom">
     <div class="col-md-6 order-md-1 mt-1">
       <h5 class="text-center mt-3 mb-3 d-grid"> DATOS DE ENVÍO</h5>
-      <div class="row mt-2">
-        <div class="col-md-2 order-md-1">Nombre</div>
-        <div class="col-md-9 order-md-2 txtNombre">
-            <input type="text" name="txtNombre" id="" class="form-control">
+      <form action="" method="post">
+        {% csrf_token %}
+        <div class="row mt-2">
+          <div class="col-md-2 order-md-1">Nombre</div>
+          <div class="col-md-9 order-md-2 txtNombre">
+              <input type="text" name="txtNombre" id="" class="form-control">
+          </div>
         </div>
-      </div>
-      <div class="row mt-2">
-        <div class="col-md-2 order-md-1">Dirección</div>
-        <div class="col-md-9 order-md-2">
-            <input type="text" name="txtNombre" id="" class="form-control txtDescripcion">
+        <div class="row mt-2">
+          <div class="col-md-2 order-md-1">Dirección</div>
+          <div class="col-md-9 order-md-2">
+              <input type="text" name="direccion" id="" class="form-control txtDescripcion">
+          </div>
         </div>
-      </div>
-      <div class="row mt-2">
-        <div class="col-md-2 order-md-1">N° Dpto (Opcional)</div>
-        <div class="col-md-9 order-md-2">
-            <input type="text" name="txtNombre" id="" class="form-control txtRut" maxlength="4">
+        <div class="row mt-2">
+          <div class="col-md-2 order-md-1">N° Dpto (Opcional)</div>
+          <div class="col-md-9 order-md-2">
+              <input type="text" name="nro_depto" id="" class="form-control txtRut" maxlength="4">
+          </div>
         </div>
+        <div class="row mt-2">
+          <div class="col-md-2 order-md-1">Región</div>
+          <div class="col-md-9 order-md-2">
+            <select name="region" id="" class="form-select">
+              <option value="0"selected>Seleccionar</option>
+              <option value="1">Región Metropolitana</option>
+              <option value="2">Región de Arica y Parinacota</option>
+              <option value="3">Región de Tarapacá</option>
+              <option value="4">Región de Atacama</option>
+              <option value="5">Región de Coquimbo</option>
+              <option value="6">Región de Valparaíso</option>
+              <option value="7">Región del Libertador Bernardo O'Higgins</option>
+              <option value="8">Región del Maule</option>
+              <option value="9">Región de Biobío</option>
+              <option value="10">Región de La Araucanía</option>
+              <option value="11">Región de Los Ríos</option>
+              <option value="12">Región de Los Lagos</option>
+              <option value="13">Región de Aysén</option>
+              <option value="14">Región de Magallanes y de la Antártica Chilena</option>
+          </select>
       </div>
-      <div class="row mt-2">
-        <div class="col-md-2 order-md-1">Región</div>
-        <div class="col-md-9 order-md-2">
-          <select name="" id="" class="form-select">
-            <option value="0"selected>Seleccionar</option>
-            <option value="1">Región Metropolitana</option>
-            <option value="2">Región de Arica y Parinacota</option>
-            <option value="3">Región de Tarapacá</option>
-            <option value="4">Región de Atacama</option>
-            <option value="5">Región de Coquimbo</option>
-            <option value="6">Región de Valparaíso</option>
-            <option value="7">Región del Libertador Bernardo O'Higgins</option>
-            <option value="8">Región del Maule</option>
-            <option value="9">Región de Biobío</option>
-            <option value="10">Región de La Araucanía</option>
-            <option value="11">Región de Los Ríos</option>
-            <option value="12">Región de Los Lagos</option>
-            <option value="13">Región de Aysén</option>
-            <option value="14">Región de Magallanes y de la Antártica Chilena</option>
-        </select>
-    </div>
-      </div>
-      <div class="row mt-2">
-        <div class="col-md-2 order-md-1">Comuna</div>
-        <div class="col-md-9 order-md-2">
-          <select name="" id="" class="form-select">
-            <option value="0"selected>Seleccionar</option>
-            <option value="1">Maipu</option>
-            <option value="2">Cerrillos</option>
-            <option value="3">Estacion Central</option>
-            <option value="4">San Joaquin</option>
-            <option value="5">La Pintana</option>
-        </select>
         </div>
-      </div>
-      <div class="row mt-2">
-        <div class="col-md-2 order-md-1">Código postal</div>
-        <div class="col-md-9 order-md-2 ">
-          <input type="text" class="form-control txtEmail" maxlength="7" >
+        <div class="row mt-2">
+          <div class="col-md-2 order-md-1">Comuna</div>
+          <div class="col-md-9 order-md-2">
+            <select name="comuna" id="" class="form-select">
+              <option value="0"selected>Seleccionar</option>
+              <option value="1">Maipu</option>
+              <option value="2">Cerrillos</option>
+              <option value="3">Estacion Central</option>
+              <option value="4">San Joaquin</option>
+              <option value="5">La Pintana</option>
+          </select>
+          </div>
         </div>
-      </div>
+        <div class="row mt-2">
+          <div class="col-md-2 order-md-1">Código postal</div>
+          <div class="col-md-9 order-md-2 ">
+            <input type="text" name="cod_postal" class="form-control txtEmail" maxlength="7" >
+          </div>
+        </div>
 
-    </div>
-    <div class="col-md-6 order-md-2 mt-1">
-      <h5 class="text-center mt-3 mb-3 d-grid"> DATOS DE TARJETA</h5>
-      <div class="row mt-2">
-        <div class="col-md-2 order-md-1">Nombre</div>
-        <div class="col-md-9 order-md-2 ">
-            <input type="text" name="txtNombre" id="" class="form-control txtNombre" >
-        </div>
       </div>
-      <div class="row mt-2">
-        <div class="col-md-2 order-md-1">N° Tarjeta</div>
-        <div class="col-md-9 order-md-2 ">
-            <input type="text" name="txtNombre" id="" class="form-control txtRut" >
+      <div class="col-md-6 order-md-2 mt-1">
+        <h5 class="text-center mt-3 mb-3 d-grid"> DATOS DE TARJETA</h5>
+        <div class="row mt-2">
+          <div class="col-md-2 order-md-1">Nombre</div>
+          <div class="col-md-9 order-md-2 ">
+              <input type="text" name="tarjeta_nom" id="" class="form-control txtNombre" >
+          </div>
         </div>
-      </div>
-      <div class="row mt-2">
-        <div class="col-md-2 order-md-1">CCV</div>
-        <div class="col-md-9 order-md-2 ">
-          <input type="text" class="form-control txtRut" maxlength="3">
+        <div class="row mt-2">
+          <div class="col-md-2 order-md-1">N° Tarjeta</div>
+          <div class="col-md-9 order-md-2 ">
+              <input type="text" name="nro_tarjeta" id="" class="form-control txtRut" >
+          </div>
         </div>
-      </div>
-      <div class="row mt-2">
-        <div class="col-md-2 order-md-1">Fecha vencimiento</div>
-        <div class="col-md-9 order-md-2">
-          <input type="text" class="form-control txtVenc" maxlength="5">
+        <div class="row mt-2">
+          <div class="col-md-2 order-md-1">CCV</div>
+          <div class="col-md-9 order-md-2 ">
+            <input type="text" name="ccv" class="form-control txtRut" maxlength="3">
+          </div>
         </div>
-      </div>
+        <div class="row mt-2">
+          <div class="col-md-2 order-md-1">Fecha vencimiento</div>
+          <div class="col-md-9 order-md-2">
+            <input type="date" name="fecha" class="form-control txtVenc" maxlength="5">
+          </div>
+        </div>
 
+      </div>
     </div>
-  </div>
-    <div class="d-grid gap-3 col-8 mt-10 mx-auto" style="padding-top: 1%;">
-      <button class="btn btn-primary" id="btnSesion" type="button"> Realizar Pedido </button>
-    </div>
+      <div class="d-grid gap-3 col-8 mt-10 mx-auto" style="padding-top: 1%;">
+        <button class="btn btn-primary" id="btnSesion" type="submit"> Realizar Pedido </button>
+      </div>
+  </form>
 </div>
 </div>
 {% endblock %}

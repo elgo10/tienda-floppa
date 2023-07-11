@@ -42,3 +42,35 @@ class Carrito(models.Model):
     
     def __str__(self):    
         return f'{self.user.id} | {self.productos.nombre}'
+
+
+class Donaciones(models.Model):
+    
+    nombre = models.CharField(max_length=200)
+    nro_tarjeta = models.IntegerField()
+    fecha = models.DateField()
+    ccv = models.IntegerField()
+    cant = models.IntegerField()
+    
+    def __str__(self):
+        
+        return f'{self.id} | {self.nombre} | {self.fecha}'
+    
+
+class Pagar(models.Model):
+    
+    nombre = models.CharField(max_length=100)
+    direccion =  models.CharField(max_length=100)
+    nro_depto  = models.IntegerField(null=True, blank=True)
+    region = models.CharField(max_length=200)
+    comuna = models.CharField(max_length=100)
+    cod_postal = models.IntegerField()
+    # ____________ Tarjeta
+    tarjeta_nom = models.CharField(max_length=100)
+    nro_tarjeta = models.IntegerField()
+    ccv = models.IntegerField()
+    fecha = models.DateField()
+    
+    def __str__(self):
+        
+        return f'{self.id} | {self.nombre} | {self.fecha}'

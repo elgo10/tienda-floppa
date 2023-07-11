@@ -4,37 +4,40 @@
 {% block content %}
 <div class="container">
     <h1 class="text-center mt-3" style="color: rgb(255, 255, 255);">Donación por débito</h1>
-
-    <div class="row mt-5">
-      <div class="col-12 col-md-2 offset-md-2">Nombre</div>
-      <div class="col-9 col-md-5"><input type="text" class="form-control"></div>
-    </div>
-    
-    <div class="row mt-2">
-      <div class="col-12 col-md-2 offset-md-2">Numero de tarjeta</div>
-      <div class="col-9 col-md-5"><input type="text" class="form-control"></div>
-    </div>
-
-    <div class="row mt-2">
-      <div class="col-12 col-md-2 offset-md-2">Fecha Expiracion</div>
-      <div class="col-12 col-md-3">
-        <input type="date" class="form-control">
+    <form action="" method="POST">
+      {% csrf_token %}
+      <div class="row mt-5">
+        <div class="col-12 col-md-2 offset-md-2">Nombre</div>
+        <div class="col-9 col-md-5"><input type="text" name="nombre" class="form-control"></div>
       </div>
-    </div>
-    
-    <div class="row mt-2">
-      <div class="col-12 col-md-2 offset-md-2">CCV</div>
-      <div class="col-12 col-md-2"><input type="text" class="form-control"></div>
-    </div>
-    
-    
-    <div class="row mt-5">
-      <div class="col-12 col-md-2 offset-md-2">Cantidad que desea donar</div>
-      <div class="col-12 col-md-3"><input type="text" class="form-control"></div>
-    </div>
+      
+      <div class="row mt-2">
+        <div class="col-12 col-md-2 offset-md-2">Numero de tarjeta</div>
+        <div class="col-9 col-md-5"><input type="text" name="nro_tarjeta" class="form-control"></div>
+      </div>
 
-    <div class="boton text-center p-5">
-      <a href="#" class="btn btn-success btn-lg">Enviar</a>
-    </div>
+      <div class="row mt-2">
+        <div class="col-12 col-md-2 offset-md-2">Fecha Expiracion</div>
+        <div class="col-12 col-md-3">
+          <input type="date" name="fecha" class="form-control">
+        </div>
+      </div>
+      
+      <div class="row mt-2">
+        <div class="col-12 col-md-2 offset-md-2">CCV</div>
+        <div class="col-12 col-md-2"><input name="ccv" type="text" class="form-control"></div>
+      </div>
+      
+      
+      <div class="row mt-5">
+        <div class="col-12 col-md-2 offset-md-2">Cantidad que desea donar</div>
+        <div class="col-12 col-md-3"><input name="cantidad" type="text" class="form-control"></div>
+      </div>
+
+      <div class="boton text-center p-5">
+        <button type="submit" class="btn btn-success btn-lg">Enviar</button>
+      </div>
+
+    </form>
 </div>
 {% endblock %}

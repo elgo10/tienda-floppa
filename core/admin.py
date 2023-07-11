@@ -6,4 +6,6 @@ from .models import  *
 admin.site.register(Cliente)
 admin.site.register(Carrito)
 admin.site.register(Producto)
+admin.site.register(Pagar)
+admin.site.register(Donaciones)
 
