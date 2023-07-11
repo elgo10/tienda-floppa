@@ -14,6 +14,13 @@ from .models import *
 
 from .form import  *
 
+
+# API REST FRAMEWORK
+from .serializers import *
+# GENERICS API
+from rest_framework import generics
+
+
 # Create your views here.
 # ___________ OPCIONES PRINCIPALES (NAVBAR U OTROS) ________________
 def home(request):
@@ -34,26 +41,19 @@ def donaciones(request):
     
     return render(request, 'Donaciones.html')
 
-import pdb
-
-def registroProducto(request):
-    pdb.set_trace()
-    if request.method == "POST":
-        nombre  = request.POST.get("nombre")
-        descripcion  = request.POST.get("descripcion")
-        marca = request.POST.get("marca")
-        cantidad  = request.POST.get("cantidad")
-        precio  = request.POST.get("precio")
-        img = request.POST.get("archive")
-        Producto(nombre =  nombre, precio = precio, descripcion = descripcion, marca = marca, cantidad = cantidad, img = img ).save()
-        
-    return render(request, 'registrar_producto.html')
+class CreateProducto(CreateView):
+    model = Producto
+    form_class = ProductoForm
+    template_name = 'registrar_producto.html'
+    success_url = reverse_lazy('home')
 
 def carrito(request):
     
     user = request.user.id
     
     carrito = Carrito.objects.filter(user_id = user)
+    
+    
     
     total = 0
     for carritos in carrito:
@@ -142,3 +142,64 @@ def registrarse(request):
             return render(request, 'login.html')
     form = RegistroForm()
     return render(request, "registro.html", {'form': form})
+
+
+# __________________ API VIEWS ______________
+
+# Producto
+class ApiPRoducts(generics.ListCreateAPIView):
+    queryset = Producto.objects.all()
+    serializer_class = ProductoSerializer
+    
+class ApiProduct(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Producto.objects.all()
+    serializer_class = ProductoSerializer
+    lookup_field = 'id'
+    lookup_url_kwarg = 'pk'
+
+# Carrito
+
+class ApiCarritos(generics.ListCreateAPIView):
+    queryset = Carrito.objects.all()
+    serializer_class = CarritoSerializer
+    
+class ApiCarrito(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Carrito.objects.all()
+    serializer_class = CarritoSerializer
+    lookup_field = 'id'
+    lookup_url_kwarg = 'pk'
+
+# Donaciones
+
+class ApiDonaciones(generics.ListCreateAPIView):
+    queryset = Donaciones.objects.all()
+    serializer_class = DonacionesSerializer
+    
+class ApiDonacion(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Donaciones.objects.all()
+    serializer_class = DonacionesSerializer
+    lookup_field = 'id'
+    lookup_url_kwarg = 'pk'
+# Pagar
+
+class ApiPagos(generics.ListCreateAPIView):
+    queryset = Producto.objects.all()
+    serializer_class = ProductoSerializer
+    
+class ApiPago(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Producto.objects.all()
+    serializer_class = ProductoSerializer
+    lookup_field = 'id'
+    lookup_url_kwarg = 'pk'
+ 
+
+# Cliente   
+class ApiClientes(generics.ListCreateAPIView):
+    queryset = Cliente.objects.all()
+    serializer_class = ClienteSerializer
+    
+class ApiCliente(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Cliente.objects.all()
+    serializer_class = ClienteSerializer
+    lookup_field = 'id'
+    lookup_url_kwarg = 'pk'

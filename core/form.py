@@ -3,6 +3,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
+from .models import *
 # Choices
 
 edChoices = (('Doctorado', 'Doctorado'),('Magister','Magister'),('Profesional','Profesional'))
@@ -28,4 +29,18 @@ class RegistroForm(UserCreationForm):
         widgets = {
             'region': forms.Select(choices="regionChoices",attrs={'class': 'form-control'} ),
             'nivelEducacional': forms.Select(choices="edChoices",attrs={'class': 'form-control'} )
+        }
+        
+class ProductoForm(forms.ModelForm):
+    
+    class Meta:
+        model = Producto
+        fields = ['nombre', 'precio', 'descripcion', 'marca', 'cantidad', 'img']
+        
+        widgets = {
+            'nombre': forms.TextInput(attrs={'class': 'form-control'}),
+            'precio': forms.NumberInput(attrs={'class': 'form-control'}),
+            'descripcion': forms.TextInput(attrs={'class': 'form-control'}),
+            'marca': forms.TextInput(attrs={'class': 'form-control'}),
+            'cantidad': forms.NumberInput(attrs={'class': 'form-control'}),
         }
