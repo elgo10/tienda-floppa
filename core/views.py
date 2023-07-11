@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 # user
 from django.contrib.auth.models import User
@@ -46,6 +46,18 @@ def donaciones(request):
     
     return render(request, 'Donaciones.html')
 
+def producto_delete(request, pk):
+    
+    prod_carrito = Carrito.objects.get(id = pk)
+    
+    if request.method == "POST":
+        
+        prod_carrito.delete()
+        
+        return redirect('carrito')
+    
+    return render(request, 'delete_producto.html', {'prod_carrito': prod_carrito})
+
 class CreateProducto(CreateView):
     model = Producto
     form_class = ProductoForm
@@ -58,7 +70,7 @@ def carrito(request):
     user = request.user.id
     
     carrito = Carrito.objects.filter(user_id = user)
-
+    
     
     total = 0
     for carritos in carrito:

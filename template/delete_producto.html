@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="container">
+    <form method="post">
+        <h1>¿ Seguro que quiere eliminar {{prod_carrito.productos.nombre}} del carrito?</h1>
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+        <a href="{% url 'carrito' %}" class="btn btn-success">Volver</a>
+    </form>
+</div>
+
+
+{% endblock  %}

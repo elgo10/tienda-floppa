@@ -8,6 +8,7 @@ urlpatterns = [
     path('transferencia/', transferencia),
     path('donaciones/', donaciones, name="donaciones"),
     path('carrito/', carrito, name="carrito"),
+    path('delete/<int:pk>', producto_delete, name="carritoDelete"),
     path('registrarProducto/', CreateProducto.as_view(), name="registrarProd"),
     path('cambiarContraseña/', cambiarPassword, name="changePassword"),
     path('producto/<int:pk>', producto, name="producto"),

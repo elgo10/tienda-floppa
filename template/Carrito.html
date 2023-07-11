@@ -14,10 +14,7 @@
             <div class="card-body">
               <h5 class="card-title">{{p.productos.nombre}}</h5>
               <div class="card-title"> <label class="h5">$</label><label class="h5" id="cardPrice">{{p.productos.precio}}</label></div>
-              <form action="" method="post">
-                <button type="submit">Eliminar</button>
-              </form>
-              <a href="#" class="card-link">Eliminar</a>
+              <a href="{% url 'carritoDelete' p.id %}" class="btn btn-danger">Eliminar</a>
             </div>
           </div>
           {% endfor %}
