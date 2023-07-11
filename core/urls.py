@@ -16,6 +16,11 @@ urlpatterns = [
     path('debito/', debito, name="debito"),
     path('transferencia/', transferencia, name="transferir"),
     
+    # CRUDS
+    
+    path('list_product/', list_productos, name="list_product"),
+    path('delete_producto/<int:pk>', delete_producto, name="delete_producto"),
+    
     # _________ API _________-
     
     path('api/productos', ApiPRoducts.as_view(), name="apiProducts"),

@@ -5,6 +5,7 @@
 
 <div class="container">    
     <h1 style="color: rgb(255, 255, 255);" class="text-center mt-5">Registrar un producto</h1>
+    <a href="{% url 'list_product' %}" class="btn btn-success">Listar</a>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="row mt-4">

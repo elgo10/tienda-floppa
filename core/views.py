@@ -56,7 +56,7 @@ def producto_delete(request, pk):
         
         return redirect('carrito')
     
-    return render(request, 'delete_producto.html', {'prod_carrito': prod_carrito})
+    return render(request, 'delete_carrito.html', {'prod_carrito': prod_carrito})
 
 class CreateProducto(CreateView):
     model = Producto
@@ -161,6 +161,18 @@ def registrarse(request):
     return render(request, "registro.html", {'form': form})
 
 
+def list_productos(request):
+    
+    productos = Producto.objects.all()
+    
+    return render(request, 'list_productos.html', {'productos': productos})
+
+def delete_producto(request, pk):
+    
+    productos = Producto.objects.get(id=pk)
+    
+    return render(request, 'delete_producto.html', {'productos': productos})
+
 # __________________ API VIEWS ______________
 
 # Producto
@@ -220,3 +232,4 @@ class ApiCliente(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ClienteSerializer
     lookup_field = 'id'
     lookup_url_kwarg = 'pk'
+    

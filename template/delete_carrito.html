@@ -6,10 +6,10 @@
 
 <div class="container">
     <form method="post">
-        <h1>¿ Seguro que quiere eliminar {{productos.nombre}} de los productos?</h1>
+        <h1>¿ Seguro que quiere eliminar {{prod_carrito.productos.nombre}} del carrito?</h1>
         {% csrf_token %}
         <button type="submit" class="btn btn-danger">Eliminar</button>
-        <a href="{% url 'registrarProd' %}" class="btn btn-success">Volver</a>
+        <a href="{% url 'carrito' %}" class="btn btn-success">Volver</a>
     </form>
 </div>
 
